@@ -1,0 +1,1 @@
+-cpu "Cortex-M3" --pd "__EVAL SETA 1" -g -apcs /interwork -list -xref -o "..\OBJ\startup_stm32f10x_md.o" "..\CORE\startup_stm32f10x_md.s"

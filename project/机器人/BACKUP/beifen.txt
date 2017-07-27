@@ -1,0 +1,120 @@
+__inline void run2()
+{
+		/*/////////////////////////////////*/
+		if((xj1 == 1)&&(xj2 == 1)&&(xj3 == 1))
+		{
+			ad1 = 177;
+		}
+		else if((xj1 == 1)&&(xj2 == 1))
+		{
+			ad1 = 179;
+		}else if(xj1 == 1)
+		{
+			ad1 = 182;
+		}
+		else
+		{
+			ad1 = 185;
+		}
+		if(ad1 == 177)
+			ad2 = 121;						
+		else if(ad1 == 179)
+			ad2 = 119;		
+		else if(ad1 == 182)		
+			ad2 = 117;
+		else if(ad1 == 185)
+			ad2 = 115;
+/*---------------------------------------------------------------------------------------------------------------*/
+		for(i=151; i<=175; i+=2)					//×ó½ÅÍá
+		{
+			TIM_SetCompare1(TIM2,i);
+			delay_ms(18);
+		}
+		for(i=115,k=115; i<=185,k<=185; i++,k++)//×óÑüÇ°
+		{
+			TIM_SetCompare2(TIM2,i);
+			TIM_SetCompare3(TIM2,k);
+			delay_ms(13);
+		}
+		for(j=185; j>=ad1; j--)
+		{
+			TIM_SetCompare3(TIM2,ad1);				//ÓÒ½ÅÐÞÕý
+			delay_ms(200);
+		}
+		for(i=175; i>=151; i-=2)					//×ó½ÅÕý
+		{
+			TIM_SetCompare1(TIM2,i);
+			delay_ms(18);
+		}
+		for(i=145; i>=122; i-=2)					//ÓÒ½ÅÍá
+		{
+			TIM_SetCompare4(TIM2,i);
+			delay_ms(18);
+		}
+		for(i=185,k=185; k>=115,i>=115; i--,k--)
+		{
+			TIM_SetCompare2(TIM2,i);
+			TIM_SetCompare3(TIM2,k);
+			delay_ms(13);
+		}
+		for(j=115; j<=ad2; j++)
+		{
+			TIM_SetCompare2(TIM2,ad2);				//×ó½ÅÆ«ÏòÄÚ
+			delay_ms(100);
+		}
+		for(i=122; i<=145; i+=2)					//ÓÒ½ÅÕý
+		{
+			TIM_SetCompare4(TIM2,i);
+			delay_ms(18);
+		}
+}
+
+__inline void run()
+{
+/*------------------------------------------------------*/
+		for(i=145; i>=122; i--)					//ÓÒ½ÅÍá
+		{
+			TIM_SetCompare4(TIM2,i);
+			delay_ms(18);
+		}
+		for(i=185,k=185; k>=115,i>=115; i--,k--)
+		{
+			TIM_SetCompare2(TIM2,i);
+			TIM_SetCompare3(TIM2,k);
+			delay_ms(13);
+		}
+		ad2 = 117;								//×ó½ÅÄÚÆ«
+		TIM_SetCompare2(TIM2,ad2);				
+		for(i=122; i<=145; i++)					//ÓÒ½ÅÕý
+		{
+			TIM_SetCompare4(TIM2,i);
+			delay_ms(18);
+		}
+/*--------------------------------------------------*/
+		if((xj1 == 1)&&(xj2 == 1)&&(xj3 == 1))
+		{
+			ad1 = 180;
+		}
+		else
+		{
+			ad1 = 185;
+		}
+/*------------------------------------------------*/
+		for(i=151; i<=175; i++)					//×ó½ÅÍá
+		{
+			TIM_SetCompare1(TIM2,i);
+			delay_ms(18);
+		}
+		for(i=ad2,k=115; i<=185,k<=185; i++,k++)
+		{
+			TIM_SetCompare2(TIM2,i);
+			TIM_SetCompare3(TIM2,k);
+			delay_ms(13);
+		}
+		//TIM_SetCompare3(TIM2,ad1);
+		for(i=175; i>=151; i--)					//×ó½ÅÕý
+		{
+			TIM_SetCompare1(TIM2,i);
+			delay_ms(18);
+		}
+}
